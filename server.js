@@ -14,16 +14,20 @@ app.get('/', (req, res) => {
 });
 
 // db config
-const db = require("./models");
+/* const db = require("./models");
 try {
-    db.sequelize.sync(/*{alter: true}*/);
+    db.sequelize.sync(/*{alter: true});
     console.log('Database connected...')
 } catch (err) {
     console.log('Unable to sync: ' + err);
 }
+*/
 
 // user routes
 app.use('/users', require('./routes/users'));
+app.use('/inkblot', require('./routes/inkblot'));
+app.use('/index', require('./routes/index'));
+app.use('/summary', require('./routes/summary'));
 
 // listen on a port
 const PORT = process.env.PORT || 5000;
