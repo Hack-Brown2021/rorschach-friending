@@ -11,6 +11,18 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+// db config
+const db = require("./models");
+try {
+    db.sequelize.sync(/*{alter: true}*/);
+    console.log('Database connected...')
+} catch (err) {
+    console.log('Unable to sync: ' + err);
+}
+
+// user routes
+app.use('/users', require('./routes/users'));
+
 // listen on a port
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
