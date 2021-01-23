@@ -1,3 +1,5 @@
+
+const path = require('path')
 const express = require('express');
 const exphbs  = require('express-handlebars');
 require('dotenv').config();
@@ -6,7 +8,7 @@ const app = express();
 
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
-
+app.use(express.static(path.join(__dirname, "/")));
 app.get('/', (req, res) => {
     res.render('index');
 });
