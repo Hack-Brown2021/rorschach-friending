@@ -23,7 +23,7 @@ app.use(
 const db = require("./models");
 try {
     // add comment block
-    db.sequelize.sync({alter: true});
+    db.sequelize.sync();
     console.log('Database connected...')
 } catch (err) {
     console.log('Unable to sync: ' + err);
