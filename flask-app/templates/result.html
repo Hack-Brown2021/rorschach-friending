@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rory</title>
+    <style>th, td {border: 1px solid black;}</style>
+</head>
+<body>
+    <h1 style:='text-align: center'>Results</h1>
+
+    <p>
+        Your closest match is person {{match_ID}}.<br>
+        You had a similarity score of {{match_score}}%.<br><br>
+    </p>
+    <table>
+        <tr>
+          <th>Inkblot #</th>
+          <th>Your Words</th>
+          <th>Person {{match_ID}}'s Words</th>
+          <th>Similarity Score</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>{{your_words[0]}}</td>
+          <td>{{match_words[0]}}</td>
+          <td>{{response_scores[0]}}</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>{{your_words[1]}}</td>
+          <td>{{match_words[1]}}</td>
+          <td>{{response_scores[1]}}</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>{{your_words[2]}}</td>
+          <td>{{match_words[2]}}</td>
+          <td>{{response_scores[2]}}</td>
+        </tr>
+        <tr>
+      </table>
+</body>
+</html>
