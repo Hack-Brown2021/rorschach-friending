@@ -23,7 +23,7 @@ router.get('/pytest', (req, res) => {
     const python = spawn('python', [path.join(__dirname, "/script1.py")]);
     // collect data from script
     python.stdout.on('data', function (data) {
-     console.log('Pipe data from python script ...');
+     console.log('Pipe data from python script...');
      dataToSend = data.toString();
     });
     // in close event we are sure that stream from child process is closed
