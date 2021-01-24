@@ -1,6 +1,6 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
-<<<<<<< HEAD
 const {spawn} = require('child_process');
 
 router.get('/', (req, res) => {
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.get('/pytest', (req, res) => {
     var dataToSend;
     // spawn new child process to call the python script
-    const python = spawn('python', ['script1.py']);
+    const python = spawn('python', [path.join(__dirname, "/script1.py")]);
     // collect data from script
     python.stdout.on('data', function (data) {
      console.log('Pipe data from python script ...');
@@ -33,11 +33,5 @@ router.get('/pytest', (req, res) => {
         res.send(dataToSend);
     });
 });
-=======
-const models = require('../models');
-
-router.get('/', (req, res) => 
-    res.render("index"));
->>>>>>> a85d31b7f99b3b4fd153a307f764cb5e7dfee95d
 
 module.exports = router;

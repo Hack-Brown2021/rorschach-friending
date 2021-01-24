@@ -4,7 +4,8 @@ const path = require("path");
 
 const db = {};
 
-const sequelize = new Sequelize('rorschach-friending', 'postgres', 'pass', {
+const sequelize = new Sequelize(process.env.DATABASE, process.env.USER, process.env.PASSWORD, {
+// const sequelize = new Sequelize('rorschach-friending', 'postgres', 'pass', {
     host: 'localhost',
     dialect: 'postgres',
     logging: false,
