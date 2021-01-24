@@ -58,7 +58,7 @@ router.post('/login', urlencodedParser, async function (req, res) {
 router.post('/register', urlencodedParser, async function (req, res) {
     console.log(req.body);
     let emailExists = await models.User.findOne({raw : true, where: {email : req.body.email}});
-
+    console.log("AHHHHHH")
     if (emailExists) {
         console.log("A user with that email already exists.");
         res.status(501).redirect('/login');
