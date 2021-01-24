@@ -33,6 +33,7 @@ try {
 app.use('/', require('./routes'));
 app.use('/', require('./routes/inkblot'));
 app.use('/users', require('./routes/users'));
+app.use('/index', require('./routes/index'));
 app.use('/summary', require('./routes/summary'));
 app.use('/friend', require('./routes/friend'));
 app.use('/account', require('./routes/account'));
