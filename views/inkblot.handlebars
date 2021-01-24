@@ -10,9 +10,20 @@
   </div>
 </div>
 
-
-
-<script src="voice.js"></script>
+<script>
+  const btn = document.getElementsByClassName("next button")[0];
+  const wordInput = document.getElementByClassID("descriptor");
+  btn.addEventListener('click', function(){
+    const words = wordInput.value.split(', ')
+    if (words.length != 5) {
+      alert('Please enter 5 words.')
+    } else {
+      console.log('Success')
+    }
+    // add `words` to user object
+  });
+    
+</script>
 
 
 <script >
