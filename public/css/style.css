@@ -38,6 +38,7 @@ input[type=text], input[type=password] {
     display: inline-block;
 }
 
+
 btn{
     justify-self: right;
     padding: 12px 20px;
@@ -92,7 +93,7 @@ select:focus, input:focus, textarea:focus {
     text-align: center;
     text-decoration: none;
     width: 200px;
-    margin: 4px 2px;
+    margin: 4px 10px;
     cursor: pointer;
     text-transform: none;
     

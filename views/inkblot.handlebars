@@ -4,8 +4,10 @@
 <div id="hidden"> 
   <img class="inkblot" src="public/images/inkblot1.png" width = 100% height=100%
       alt="Purple Inkblot, https://pixabay.com/vectors/inkblot-rorschach-test-158309/"/>
+  <form>
+    <input type="text" id="descriptor" name="descriptor"><br>
+  </form>
   <div class="center">
-      <button class="start button">Start</button> 
       <button class="next button" onclick="window.location.href='/inkblot2';">Next</button> 
   </div>
 </div>
@@ -32,8 +34,8 @@
 const words = `
  okay! 
  first, i'll show you a picture,
- then click "start" and describe what you see
- once you are done click next to move on`;
+ then type 5 words separated by commas
+ describing what you see`;
 
 const leftChar = ">";
 const textContainer = document.getElementById('typingText');
