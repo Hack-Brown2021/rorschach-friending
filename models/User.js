@@ -14,11 +14,11 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         inkwords: {
-            type: DataTypes.ARRAY,
+            type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: true,
         },
         matches: {
-            type: DataTypes.ARRAY,
+            type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: true,
         }
     });
