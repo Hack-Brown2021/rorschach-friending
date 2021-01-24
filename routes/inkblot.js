@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const models = require('../models');
 
-router.get('/inkblot', checkLoggedIn, (req, res) => {
+router.get('/inkblot',/*, checkLoggedIn, */(req, res) => {
     res.render("inkblot");
 });
     

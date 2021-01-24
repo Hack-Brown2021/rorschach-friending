@@ -2,11 +2,11 @@
 <div class="center" id="hidden">
   <div id="contact">
     <h1>Your New Friend</h1>
-    <p>Name: ______ </br>
-    Email: ______ </br>
-    Similarity factor: _____
+    <p>Name: John Doe </br>
+    Email: johndoe@brown.edu </br>
+    Similarity: 87%
     </p>
-    <button class="start button" onclick="window.location='mailto:_______ subject=Hi friend of Rory'">email now</button> 
+    <button class="start button" onclick="window.location='mailto:_______ subject=Hi, friend of Rory'">email now</button> 
     <button class="start button" onclick="window.location.href='/inkblot';">take the test again</button> 
   </div>
 </div>
@@ -19,7 +19,16 @@ var words = `
 
  you're not alone
 
- i've matched you with another human who also thought that my drawing looked like  ___some descriptor word___`;
+ i've matched you with another human who also thought that my drawing looked like wild feline
+
+ based on your responses, you had a 87% similarity factor with John Doe
+ nice!
+
+ you had the most similar repsonses for inkblot drawing #1
+
+ and had very different responses for inkblot drawing #3`;
+
+
 
 const leftChar = ">";
 const textContainer = document.getElementById('typingText');
@@ -28,7 +37,7 @@ var startTime;
 var lastCharPos;
 var currentLine;
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 15; i++) {
   textContainer.appendChild(Object.assign(document.createElement("div"), {
     className: "typed--typed-text",
     textContent: ""
