@@ -1,28 +1,33 @@
-<button class="button back" onclick="window.location.href='/index';"> < restart </button>   
-
-<p id="typingText"></p>
-<div id="hidden"> 
-  <img class="inkblot" src="public/images/inkblot1.png" width = 100% height=100%
-      alt="Purple Inkblot, https://pixabay.com/vectors/inkblot-rorschach-test-158309/">
-  <div class="center">
-      <button class="start button">Start</button> 
-      <button class="next button" onclick="window.location.href='/inkblot2';">Next</button> 
-  </div>
+ <div id="typingText"></div>
+<div id="hidden">
+  <form id="my-form">
+    <h1>Create an Account</h1>
+    <div class="msg"></div>
+    <div>
+      <label for="name">First Name:</label>
+      <input type="text" id="firstname">
+    </div>
+    <div>
+      <label for="name">Last Name:</label>
+      <input type="text" id="lastname">
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="text" id="email">
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password">
+    </div class="right">
+    <input class="btn" type="submit" value="Submit">
+  </form>
 </div>
-
-
-
-<script src="voice.js"></script>
-
 
 <script >
     requestAnimationFrame(typer);
     
-const words = `
- okay! 
- first, i'll show you a picture,
- then click "start" and describe what you see
- once you are done click next to move one`;
+var words = `
+ give me your identity... hehe`;
 
 const leftChar = ">";
 const textContainer = document.getElementById('typingText');
@@ -75,9 +80,7 @@ function typer(time) {
   if (charPos < words.length -1) {
        requestAnimationFrame(typer);
     } else{
-        document.getElementById("hidden").style.display = "Block";
-         
+        document.getElementById("hidden").style.display = "block";
     }
 }
 </script>
-

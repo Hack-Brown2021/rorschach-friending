@@ -1,15 +1,13 @@
 <button class="button back" onclick="window.location.href='/index';"> < restart </button>   
 
 <p id="typingText"></p>
-<div id="hidden"> 
-  <img class="inkblot" src="public/images/inkblot1.png" width = 100% height=100%
-      alt="Purple Inkblot, https://pixabay.com/vectors/inkblot-rorschach-test-158309/">
+<div id="hidden">
+  <img class="inkblot" src="public/images/inkblot2.png" width = 100% height=100%>
   <div class="center">
       <button class="start button">Start</button> 
-      <button class="next button" onclick="window.location.href='/inkblot2';">Next</button> 
+      <button class="next button" onclick="window.location.href='/inkblot3';">Next</button> 
   </div>
 </div>
-
 
 
 <script src="voice.js"></script>
@@ -19,10 +17,7 @@
     requestAnimationFrame(typer);
     
 const words = `
- okay! 
- first, i'll show you a picture,
- then click "start" and describe what you see
- once you are done click next to move one`;
+  here's the next one...`;
 
 const leftChar = ">";
 const textContainer = document.getElementById('typingText');
@@ -76,7 +71,6 @@ function typer(time) {
        requestAnimationFrame(typer);
     } else{
         document.getElementById("hidden").style.display = "Block";
-         
     }
 }
 </script>

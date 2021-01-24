@@ -27,6 +27,23 @@ form{
     display: flex;
     justify-content: center;
 }
+
+#my-form{
+    display: block;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+btn{
+    justify-self: right;
+    padding: 12px 20px;
+}
+
+
 input{
     background-color: transparent;
     border-color: black;
@@ -54,10 +71,7 @@ input{
 
 #hidden{
     display: none;
-}
-
-.inkblot{
-    display: none;
+    justify-content: center;
 }
 
 .button {
