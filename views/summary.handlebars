@@ -11,11 +11,13 @@ const words = `
  alrighty,
  let's see what we have here...
  
- blah blah blah
+ hmmmm, very interesting...
+
+ my drawing that was supposed to be a cloud, you called a _____
  
- more things
+ you're not very good at this game, are you?
  
- and finally an interesting thing`;
+ not worries though...`;
 
 const leftChar = ">";
 const textContainer = document.getElementById('typingText');
@@ -69,6 +71,7 @@ function typer(time) {
        requestAnimationFrame(typer);
     } else{
         document.getElementById("hidden").style.display = "block";
+        //location.replace('/friend');
     }
 }
 </script>

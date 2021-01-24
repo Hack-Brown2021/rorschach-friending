@@ -1,7 +1,14 @@
  <div id="typingText"></div>
 <div class="center" id="hidden">
-    <button class="start button" onclick="window.location.href='/account';">save friend info</button> 
+  <div id="contact">
+    <h1>Your New Friend</h1>
+    <p>Name: ______ </br>
+    Email: ______ </br>
+    Similarity factor: _____
+    </p>
+    <button class="start button" onclick="window.location='mailto:_______ subject=Hi friend of Rory'">email now</button> 
     <button class="start button" onclick="window.location.href='/index';">take the test again</button> 
+  </div>
 </div>
 
 <script >
@@ -9,8 +16,10 @@
     
 var words = `
  good news!
+
  you're not alone
- i've matched you with another human who also though that my drawing looked like a ______`;
+
+ i've matched you with another human who also thought that my drawing looked like  ___some descriptor word___`;
 
 const leftChar = ">";
 const textContainer = document.getElementById('typingText');

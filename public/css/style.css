@@ -74,7 +74,7 @@ select:focus, input:focus, textarea:focus {
 .center{
     display: flex;
     align-self: center;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 50px;
     width: 100%;
     justify-content: center;
@@ -83,6 +83,14 @@ select:focus, input:focus, textarea:focus {
 #hidden{
     display: none;
     justify-content: center;
+}
+
+#contact{
+    padding-left: 30px;
+    padding-right: 30px;
+    border-width: 1px; 
+    border-color: black;
+    border-radius: 10px;
 }
 
 .button {
