@@ -21,14 +21,19 @@ app.use(
 );
 
 // db config
-const db = require("./models");
+/* const db = require("./models");
 try {
+<<<<<<< HEAD
     // add comment block
     db.sequelize.sync({alter: true});
+=======
+    db.sequelize.sync(/*{alter: true});
+>>>>>>> a85d31b7f99b3b4fd153a307f764cb5e7dfee95d
     console.log('Database connected...')
 } catch (err) {
     console.log('Unable to sync: ' + err);
 }
+*/
 
 /*
 app.get('/', (req, res) => {
@@ -52,6 +57,9 @@ app.get('/', (req, res) => {
 // routes
 app.use("/", require('./routes'));
 app.use('/users', require('./routes/users'));
+app.use('/inkblot', require('./routes/inkblot'));
+app.use('/index', require('./routes/index'));
+app.use('/summary', require('./routes/summary'));
 
 // listen on a port
 const PORT = process.env.PORT || 5000;
