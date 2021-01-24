@@ -1,1 +1,0 @@
-var btn = document.getElementsByClassName("start button")[0];

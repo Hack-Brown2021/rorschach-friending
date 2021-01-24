@@ -57,16 +57,26 @@ input{
     margin: 10px 5px;
 }
 
+select:focus, input:focus, textarea:focus {
+    outline: 0;
+    outline-color: transparent;
+    outline-style: none;
+  }
+  
 .right {
+    display: flex;
     align-self: flex-end;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
 .center{
+    display: flex;
     align-self: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    width: 100%;
+    justify-content: center;
 }
 
 #hidden{
