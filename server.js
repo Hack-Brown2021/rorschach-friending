@@ -30,7 +30,7 @@ try {
 }
 
 // routes
-app.use("/", require('./routes'));
+app.use('/', require('./routes'));
 app.use('/users', require('./routes/users'));
 app.use('/inkblot', require('./routes/inkblot'));
 app.use('/index', require('./routes/index'));
