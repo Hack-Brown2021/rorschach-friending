@@ -7,6 +7,7 @@ const db = {};
 const sequelize = new Sequelize('rorschach-friending', 'postgres', 'pass', {
     host: 'localhost',
     dialect: 'postgres',
+    logging: false,
     define: {
         charset: "utf8",
         collate: "utf8_general_ci",

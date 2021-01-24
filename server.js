@@ -1,7 +1,8 @@
-
 const path = require('path')
 const express = require('express');
 const exphbs  = require('express-handlebars');
+const session = require('express-session');
+const {spawn} = require('child_process');
 require('dotenv').config();
 
 const app = express();
@@ -9,20 +10,47 @@ const app = express();
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname, "/")));
-app.get('/', (req, res) => {
-    res.render('index');
-});
+app.use(
+    session({
+        secret: 'secret',
+        cookie: {},
+        resave: true,
+        saveUninitialized: true,
+        maxAge: 24 * 60 * 60 * 1000, // 24 hrs
+    })
+);
 
 // db config
 const db = require("./models");
 try {
-    db.sequelize.sync(/*{alter: true}*/);
+    // add comment block
+    db.sequelize.sync({alter: true});
     console.log('Database connected...')
 } catch (err) {
     console.log('Unable to sync: ' + err);
 }
 
-// user routes
+/*
+app.get('/', (req, res) => {
+    var dataToSend;
+    // spawn new child process to call the python script
+    const python = spawn('python', ['script1.py']);
+    // collect data from script
+    python.stdout.on('data', function (data) {
+     console.log('Pipe data from python script ...');
+     dataToSend = data.toString();
+    });
+    // in close event we are sure that stream from child process is closed
+    python.on('close', (code) => {
+        console.log(`child process close all stdio with code ${code}`);
+        // send data to browser
+        res.send(dataToSend);
+    });
+});
+*/
+
+// routes
+app.use("/", require('./routes'));
 app.use('/users', require('./routes/users'));
 
 // listen on a port
