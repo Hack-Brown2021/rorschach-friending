@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const models = require('../models');
 
+<<<<<<< HEAD
 router.get('/inkblot', checkLoggedIn, (req, res) => {
     res.render("inkblot");
 });
@@ -9,6 +10,10 @@ router.get('/inkblot', checkLoggedIn, (req, res) => {
 router.get('/inkblot2', (req, res) => {
     res.render("inkblot2");
 });
+=======
+router.get('/inkblot', /*checkLoggedIn,*/ (req, res) => 
+    res.render("inkblot"));
+>>>>>>> 3e69e2f43db2d5c55d057648fcdcaabc19fea89c
 
 router.get('/inkblot3', (req, res) => { 
     res.render("inkblot3");
