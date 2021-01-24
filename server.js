@@ -31,13 +31,8 @@ try {
 
 // routes
 app.use('/', require('./routes'));
+app.use('/', require('./routes/inkblot'));
 app.use('/users', require('./routes/users'));
-app.use('/inkblot', require('./routes/inkblot'));
-app.use('/inkblot2', require('./routes/inkblot2'));
-app.use('/inkblot3', require('./routes/inkblot3'));
-app.use('/inkblot4', require('./routes/inkblot4'));
-app.use('/inkblot5', require('./routes/inkblot5'));
-app.use('/index', require('./routes/index'));
 app.use('/summary', require('./routes/summary'));
 app.use('/friend', require('./routes/friend'));
 app.use('/account', require('./routes/account'));

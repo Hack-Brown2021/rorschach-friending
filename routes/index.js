@@ -9,16 +9,15 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.get('/', (req, res) => {
     res.render('index');
-    
-    /*
-    if(req.session.page_views){
-        req.session.page_views++;
-        res.send("You visited this page " + req.session.page_views + " times");
-     } else {
-        req.session.page_views = 1;
-        res.send("Welcome to this page for the first time!");
-     }
-     */
+});
+
+router.get('/logout', (req, res) => {
+    req.session.uid = null;
+    req.session.name = null;
+    req.session.email = null;
+    req.session.matches = null;
+    req.session.inkwords = null;
+    res.redirect('/');
 });
 
 router.get('/login', (req, res) => {
@@ -42,11 +41,17 @@ router.post('/login', urlencodedParser, async function (req, res) {
         req.session.uid = user.id;
         req.session.name = user.name;
         req.session.email = user.email;
+        req.session.matches = user.matches;
+        req.session.inkwords = user.inkwords;
 
         console.log("User " + req.session.name + " successfully logged in!")
         console.log("req.session.uid = " + req.session.uid);
 
-        res.status(200).redirect('/inkblot');
+        if (!req.session.matches) {
+            res.status(200).redirect('/inkblot');
+        } else {
+            res.status(200).redirect('/friend');
+        }
     }
 });
 
