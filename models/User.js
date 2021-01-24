@@ -14,9 +14,13 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         inkwords: {
-            type: DataTypes.STRING,
+            type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: true,
         },
+        matches: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: true,
+        }
     });
 
     return User;
