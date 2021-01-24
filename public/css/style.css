@@ -27,6 +27,24 @@ form{
     display: flex;
     justify-content: center;
 }
+
+#my-form{
+    display: block;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+
+btn{
+    justify-self: right;
+    padding: 12px 20px;
+}
+
+
 input{
     background-color: transparent;
     border-color: black;
@@ -40,24 +58,31 @@ input{
     margin: 10px 5px;
 }
 
+select:focus, input:focus, textarea:focus {
+    outline: 0;
+    outline-color: transparent;
+    outline-style: none;
+  }
+  
 .right {
+    display: flex;
     align-self: flex-end;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
 .center{
+    display: flex;
     align-self: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    width: 100%;
+    justify-content: center;
 }
 
 #hidden{
     display: none;
-}
-
-.inkblot{
-    display: none;
+    justify-content: center;
 }
 
 .button {
@@ -68,7 +93,7 @@ input{
     text-align: center;
     text-decoration: none;
     width: 200px;
-    margin: 4px 2px;
+    margin: 4px 10px;
     cursor: pointer;
     text-transform: none;
     
