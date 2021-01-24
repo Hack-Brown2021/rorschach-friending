@@ -39,12 +39,25 @@ input{
     width: 50%;
     margin: 10px 5px;
 }
+
 .right {
     align-self: flex-end;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .center{
     align-self: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#hidden{
+    display: none;
+}
+
+.inkblot{
+    display: none;
 }
 
 .button {

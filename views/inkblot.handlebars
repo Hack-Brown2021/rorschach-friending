@@ -1,9 +1,8 @@
 <button class="button back" onclick="window.location.href='/index';"> < restart </button>   
 
-<p class="hidden">okay! i'll show you a picture, and type in 5 words that describe what you see...</p>
-<img class="inkblot" src="public/images/inkblot - 1.png" width = 100% height=100%
+<p id="typingText"></p>
+<img class="inkblot" src="public/images/inkblot1.png" width = 100% height=100%
     alt="Purple Inkblot, https://pixabay.com/vectors/inkblot-rorschach-test-158309/">
-
 <form>
     <input type="text" id="descriptor" name="descriptor"><br>
 </form>
@@ -14,7 +13,77 @@
 <img class="inkblot" src="https://upload.wikimedia.org/wikipedia/commons/8/80/Rorschach_like_Inkblot.svg" height=100%/>
 <a class="references" href="https://commons.wikimedia.org/wiki/File:Rorschach_like_Inkblot.svg">I, G ambrus</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, via Wikimedia Commons
 
+<img class="inkblot" src="public/images/inkblot2.jpg" width = 100% height=100%>
 
-<script>
+<img class="inkblot" src="public/images/inkblot3.jpg" width = 100% height=100%>
 
+<img class="inkblot" src="public/images/inkblot4.jpg" width = 100% height=100%>
+
+<script >
+    requestAnimationFrame(typer);
+    
+const words = `
+ okay! 
+ first, i'll show you a picture,
+ type 5 words that describe what you see ...`;
+
+const leftChar = ">";
+const textContainer = document.getElementById('typingText');
+const speed = 70;
+var startTime;
+var lastCharPos;
+var currentLine;
+
+for (let i = 0; i < 5; i++) {
+  textContainer.appendChild(Object.assign(document.createElement("div"), {
+    className: "typed--typed-text",
+    textContent: ""
+  }));
+}
+// removes top line, clears it and adds to bottom of container
+function newLine() {
+  currentLine = textContainer.querySelector(".typed--typed-text");
+  textContainer.removeChild(currentLine);
+  textContainer.appendChild(currentLine);
+  currentLine.textContent = leftChar;
+}
+
+
+function typer(time) {
+  var str = "";
+  if (startTime === undefined) {
+    newLine();
+    startTime = time;
+    lastCharPos = 0;
+  }
+
+  // 1 in 20 characters are 50ms faster
+  //if (Math.random() < 0.05) { startTime -= 50 }
+
+  var charPos = (time - startTime) / speed | 0;
+  while (lastCharPos <= charPos) {
+    const char = words[(lastCharPos++) % words.length];
+    if (char === "\n") {
+      currentLine.textContent += str;
+      str = "";
+      newLine();
+    } else if (char === "<") {
+      const text = currentLine.textContent;
+      currentLine.textContent = text.substring(0,text.length-1);
+    } else {
+      str += char;
+    }
+  }
+  currentLine.textContent += str;
+  if (charPos < words.length -1) {
+       requestAnimationFrame(typer);
+    } else{
+        var x = document.getElementsByClassName("inkblot");
+        var i;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "block";
+        }   
+    }
+}
 </script>
+

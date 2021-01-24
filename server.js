@@ -28,6 +28,7 @@ app.use('/users', require('./routes/users'));
 app.use('/inkblot', require('./routes/inkblot'));
 app.use('/index', require('./routes/index'));
 app.use('/summary', require('./routes/summary'));
+app.use('/friend', require('./routes/friend'));
 
 // listen on a port
 const PORT = process.env.PORT || 5000;
