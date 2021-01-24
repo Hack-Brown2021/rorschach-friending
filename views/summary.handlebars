@@ -1,7 +1,74 @@
 <button class="button back" onclick="window.location.href='/index';"> < restart </button>   
+<div id="typingText"></div>
+<div class="right">
+    <button class="start button" id="hidden" onclick="window.location.href='/friend';" >Meet your Friend</button>    
+</div>
 
-<p class="hidden">alrighty, let's see what we have here...</p>
+<script >
+    requestAnimationFrame(typer);
+    
+const words = `
+ alrighty,
+ let's see what we have here...
+ 
+ blah blah blah
+ 
+ more things
+ 
+ and finally an interesting thing`;
 
-<script>
+const leftChar = ">";
+const textContainer = document.getElementById('typingText');
+const speed = 70;
+var startTime;
+var lastCharPos;
+var currentLine;
 
+for (let i = 0; i < 15; i++) {
+  textContainer.appendChild(Object.assign(document.createElement("div"), {
+    className: "typed--typed-text",
+    textContent: ""
+  }));
+}
+// removes top line, clears it and adds to bottom of container
+function newLine() {
+  currentLine = textContainer.querySelector(".typed--typed-text");
+  textContainer.removeChild(currentLine);
+  textContainer.appendChild(currentLine);
+  currentLine.textContent = leftChar;
+}
+
+
+function typer(time) {
+  var str = "";
+  if (startTime === undefined) {
+    newLine();
+    startTime = time;
+    lastCharPos = 0;
+  }
+
+  // 1 in 20 characters are 50ms faster
+  //if (Math.random() < 0.05) { startTime -= 50 }
+
+  var charPos = (time - startTime) / speed | 0;
+  while (lastCharPos <= charPos) {
+    const char = words[(lastCharPos++) % words.length];
+    if (char === "\n") {
+      currentLine.textContent += str;
+      str = "";
+      newLine();
+    } else if (char === "<") {
+      const text = currentLine.textContent;
+      currentLine.textContent = text.substring(0,text.length-1);
+    } else {
+      str += char;
+    }
+  }
+  currentLine.textContent += str;
+  if (charPos < words.length -1) {
+       requestAnimationFrame(typer);
+    } else{
+        document.getElementById("hidden").style.display = "block";
+    }
+}
 </script>
