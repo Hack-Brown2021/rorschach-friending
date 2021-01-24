@@ -1,4 +1,4 @@
-<button class="button back" onclick="window.location.href='/index';"> < restart </button>   
+<button class="button back" onclick="window.location.href='/inkblot';"> < restart </button>   
 
 <p id="typingText"></p>
 <div id="hidden">
@@ -8,9 +8,29 @@
     <input type="text" id="descriptor" name="descriptor"><br>
   </form>
   <div class="center">
-      <button class="next button" onclick="window.location.href='/summary';">Analyze Data</button> 
+      <button class="nextButton" onclick="window.location.href='/summary';">Analyze Data</button> 
   </div>
 </div>
+
+<script>
+  const btn = document.getElementsByClassName("nextButton")[0];
+  const wordInput = document.getElementById("descriptor");
+  btn.addEventListener('click', function() {
+    const words = wordInput.value.split(', ')
+    console.log(words.length);
+    console.log(wordInput.value);
+    if (words.length != 5) {
+      alert('Please enter 5 words.');
+    } else {
+      window.location.href  = '/summary';
+      /*
+      const arr = [wordInput.value];
+      const arrStr = encodeURIComponent(JSON.stringify(arr));
+      window.location.href  = '/inkblot2?array=' + arrStr;
+      */
+    }
+  });
+</script>
 
 
 <script src="voice.js"></script>

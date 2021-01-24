@@ -2,20 +2,25 @@ const express = require('express');
 const router = express.Router();
 const models = require('../models');
 
-router.get('/inkblot', checkLoggedIn, (req, res) => 
-    res.render("inkblot"));
+router.get('/inkblot', checkLoggedIn, (req, res) => {
+    res.render("inkblot");
+});
+    
+router.get('/inkblot2', (req, res) => {
+    res.render("inkblot2");
+});
 
-router.get('/inkblot2', (req, res) => 
-    res.render("inkblot2"));
+router.get('/inkblot3', (req, res) => { 
+    res.render("inkblot3");
+});
 
-router.get('/inkblot3', (req, res) => 
-    res.render("inkblot3"));
+router.get('/inkblot4', (req, res) => {
+    res.render("inkblot4");
+});
 
-router.get('/inkblot4', (req, res) => 
-    res.render("inkblot4"));
-
-router.get('/inkblot5', (req, res) => 
-    res.render("inkblot5"));
+router.get('/inkblot5', (req, res) => {
+    res.render("inkblot5");
+});
 
 function checkLoggedIn(req, res, next) {
     if (!req.session.uid) {
